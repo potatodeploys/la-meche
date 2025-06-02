@@ -4,15 +4,14 @@
   "description": "La Mèche luxury candle website",
   "type": "module",
   "main": "index.ts",
-  "scripts": {
+"scripts": {
   "dev": "node --loader ts-node/esm index.ts",
-  "build": "tsc && npm run client:build && npm run copy-client",
-  "client:build": "cd client && npm install && npm run build",
-  "copy-client": "cp -r client/dist dist/client",
+  "build": "tsc",
   "start": "node dist/index.js",
   "db:generate": "drizzle-kit generate:pg",
   "db:push": "drizzle-kit push:pg",
   "db:migrate": "ts-node --esm migrate.ts"
+
 },
   "dependencies": {
     "@sendgrid/mail": "^8.1.0",
