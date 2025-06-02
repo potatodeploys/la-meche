@@ -8,15 +8,16 @@ import { dirname, resolve } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export async function setupVite(app: express.Express, server: any) {
+export async function setupVite(app: express.Express) {
   const vite = await createViteServer({
     server: { middlewareMode: true },
-    appType: 'spa'
+    appType: 'spa',
   });
 
   app.use(vite.ssrFixStacktrace);
   app.use(vite.middlewares);
 }
+
 
 export function serveStatic(app: express.Express) {
   app.use(express.static('dist'));

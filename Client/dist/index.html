@@ -1,0 +1,2432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Mèche - Luxury Scented Candles | Where Scent Meets Style</title>
+    <meta name="description" content="Discover La Mèche's luxury scented candle collection. From tropical paradises to cozy evenings, experience premium soy wax candles with exclusive preorder discounts.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS RESET AND BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --background: 210 15% 8%;
+            --foreground: 210 40% 95%;
+            --muted: 210 15% 15%;
+            --muted-foreground: 210 15% 65%;
+            --popover: 210 15% 10%;
+            --popover-foreground: 210 40% 95%;
+            --card: 210 15% 8%;
+            --card-foreground: 210 40% 95%;
+            --border: 180 62% 55%;
+            --input: 210 15% 15%;
+            --primary: 180 62% 55%;
+            --primary-foreground: 210 15% 8%;
+            --secondary: 210 15% 15%;
+            --secondary-foreground: 210 40% 95%;
+            --accent: 180 62% 55%;
+            --accent-foreground: 210 15% 8%;
+            --destructive: 0 84% 60%;
+            --destructive-foreground: 0 0% 98%;
+            --ring: 180 62% 55%;
+            --radius: 0.75rem;
+            --ocean-deep: 210 15% 8%;
+            --ocean-darker: 210 20% 6%;
+            --twilight-purple: 267 57% 12%;
+            --tropical-teal: 180 62% 55%;
+            --coral-sunset: 14 100% 70%;
+            --lavender-mist: 252 91% 77%;
+            --vanilla-cream: 48 100% 94%;
+            --midnight-blue: 222 84% 12%;
+            --animation-slow: 2s;
+            --animation-normal: 1s;
+            --animation-fast: 0.5s;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: linear-gradient(135deg, hsl(var(--ocean-deep)) 0%, hsl(var(--twilight-purple)) 50%, hsl(var(--midnight-blue)) 100%);
+            background-attachment: fixed;
+            color: hsl(var(--foreground));
+            overflow-x: hidden;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .nav-brand h1 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* ===== COMPREHENSIVE ANIMATION LIBRARY ===== */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(2deg); }
+            66% { transform: translateY(8px) rotate(-1deg); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 20px rgba(45, 212, 191, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(45, 212, 191, 0.6); }
+            100% { box-shadow: 0 0 20px rgba(45, 212, 191, 0.3); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes cardHover {
+            from { transform: translateY(0) scale(1); }
+            to { transform: translateY(-8px) scale(1.02); }
+        }
+
+        @keyframes buttonPress {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.98); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 10px rgba(45, 212, 191, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(45, 212, 191, 0.8), 0 0 30px rgba(45, 212, 191, 0.4); }
+        }
+
+        @keyframes stars-drift {
+            0% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(-50px) translateY(-25px); }
+            50% { transform: translateX(-100px) translateY(0); }
+            75% { transform: translateX(-50px) translateY(25px); }
+            100% { transform: translateX(0) translateY(0); }
+        }
+
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: hsl(var(--tropical-teal)); }
+        }
+
+        @keyframes ripple {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(4); opacity: 0; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0); }
+            40%, 43% { transform: translate3d(0, -30px, 0); }
+            70% { transform: translate3d(0, -15px, 0); }
+            90% { transform: translate3d(0, -4px, 0); }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes rotateIn {
+            from { transform: rotate(-360deg) scale(0); opacity: 0; }
+            to { transform: rotate(0) scale(1); opacity: 1; }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.1); }
+            70% { transform: scale(1); }
+        }
+
+        @keyframes spiralSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        @keyframes colorCycle {
+            0% { filter: hue-rotate(0deg); }
+            25% { filter: hue-rotate(90deg); }
+            50% { filter: hue-rotate(180deg); }
+            75% { filter: hue-rotate(270deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        @keyframes morphShape {
+            0% { border-radius: 50% 20% 80% 30%; }
+            25% { border-radius: 30% 80% 20% 50%; }
+            50% { border-radius: 80% 30% 50% 20%; }
+            75% { border-radius: 20% 50% 30% 80%; }
+            100% { border-radius: 50% 20% 80% 30%; }
+        }
+
+        @keyframes liquidFlow {
+            0% { transform: translateX(-100%) skewX(-15deg); }
+            100% { transform: translateX(100%) skewX(-15deg); }
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        @keyframes vibrate {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+            20%, 40%, 60%, 80% { transform: translateX(2px); }
+        }
+
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideDownFade {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideLeftFade {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideRightFade {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes expandContract {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shadowPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(45, 212, 191, 0.3); }
+            50% { box-shadow: 0 0 60px rgba(45, 212, 191, 0.8), 0 0 100px rgba(199, 185, 255, 0.4); }
+        }
+
+        @keyframes colorShift {
+            0% { 
+                background-position: 0% 50%;
+            }
+            50% { 
+                background-position: 100% 50%;
+            }
+            100% { 
+                background-position: 0% 50%;
+            }
+        }
+
+        /* ===== BACKGROUND EFFECTS ===== */
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(135deg, 
+                hsl(var(--ocean-deep)) 0%, 
+                hsl(var(--twilight-purple)) 30%, 
+                hsl(var(--tropical-teal) / 0.3) 60%, 
+                hsl(var(--midnight-blue)) 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '';
+            position: absolute;
+            background: radial-gradient(circle, rgba(45, 212, 191, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .floating-elements::before {
+            width: 300px;
+            height: 300px;
+            top: 20%;
+            left: 10%;
+            animation-delay: -2s;
+        }
+
+        .floating-elements::after {
+            width: 200px;
+            height: 200px;
+            bottom: 30%;
+            right: 15%;
+            animation-delay: -4s;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(45, 212, 191, 0.3);
+            border-radius: 50%;
+            animation: particleFloat linear infinite;
+            pointer-events: none;
+        }
+
+        /* ===== TYPOGRAPHY EFFECTS ===== */
+        .text-shimmer {
+            background: linear-gradient(90deg, 
+                hsl(var(--foreground)), 
+                hsl(var(--tropical-teal)), 
+                hsl(var(--lavender-mist)), 
+                hsl(var(--foreground)));
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+
+        .text-glow {
+            animation: textGlow 4s ease-in-out infinite;
+        }
+
+        .title-entrance {
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .subtitle-entrance {
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .content-entrance {
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid;
+            white-space: nowrap;
+            animation: typewriter 4s steps(40) 1s 1 normal both, blink 1s steps(40) infinite;
+        }
+
+        /* ===== NAVIGATION STYLES ===== */
+        .nav-container {
+            background: rgba(11, 20, 38, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(45, 212, 191, 0.2);
+            transition: all 0.3s ease;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container.scrolled {
+            background: rgba(11, 20, 38, 0.95);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+        }
+
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #0B1426, #1A0B2E, #2DD4BF);
+            background-size: 200% 200%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: shadowPulse 4s ease-in-out infinite, gradientShift 6s ease infinite;
+            border: 2px solid rgba(45, 212, 191, 0.4);
+            position: relative;
+            box-shadow: 0 0 20px rgba(45, 212, 191, 0.4), 0 0 40px rgba(45, 212, 191, 0.2);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .logo-image::before {
+            content: '🕯️';
+            font-size: 1.8rem;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+        }
+
+        .logo:hover .logo-image {
+            filter: drop-shadow(0 0 25px rgba(45, 212, 191, 0.6));
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #2DD4BF 0%, #8B5CF6 25%, #60A5FA 50%, #C7B9FF 75%, #2DD4BF 100%);
+            background-size: 200% 200%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            animation: shimmer 3s linear infinite;
+            filter: none;
+            transform: none;
+        }
+
+        .easter-egg-trigger {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+
+        .easter-egg-trigger:hover {
+            color: hsl(var(--lavender-mist));
+            text-shadow: 0 0 10px rgba(199, 185, 255, 0.5);
+            transform: scale(1.2) rotate(-5deg);
+            animation: vibrate 0.5s ease-in-out;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            color: hsl(var(--muted-foreground));
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(45, 212, 191, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .tab-button:hover::before {
+            left: 100%;
+        }
+
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, hsl(var(--tropical-teal)), hsl(var(--lavender-mist)));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .tab-button.active::after,
+        .tab-button:hover::after {
+            width: 100%;
+        }
+
+        .tab-button.active {
+            color: hsl(var(--tropical-teal));
+            text-shadow: 0 0 10px rgba(45, 212, 191, 0.3);
+        }
+
+        .tab-button:hover {
+            color: hsl(var(--foreground));
+            transform: translateY(-2px);
+        }
+
+        /* ===== GLASS EFFECTS ===== */
+        .glass-card {
+            background: rgba(26, 35, 50, 0.3);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(45, 212, 191, 0.2);
+            border-radius: 1rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(45, 212, 191, 0.05), rgba(199, 185, 255, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(26, 35, 50, 0.5);
+            border-color: rgba(45, 212, 191, 0.4);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(45, 212, 191, 0.2);
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .glass-button {
+            background: rgba(45, 212, 191, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            color: hsl(var(--foreground));
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-weight: 500;
+        }
+
+        .glass-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .glass-button:hover::before {
+            left: 100%;
+        }
+
+        .glass-button:hover {
+            background: rgba(45, 212, 191, 0.2);
+            border-color: rgba(45, 212, 191, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(45, 212, 191, 0.3);
+        }
+
+        .glass-button:active {
+            animation: buttonPress 0.2s ease;
+        }
+
+        .glass-input {
+            background: rgba(26, 35, 50, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            color: hsl(var(--foreground));
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .glass-input:focus {
+            background: rgba(26, 35, 50, 0.6);
+            border-color: hsl(var(--tropical-teal));
+            box-shadow: 0 0 20px rgba(45, 212, 191, 0.2);
+            outline: none;
+        }
+
+        .glass-input::placeholder {
+            color: hsl(var(--muted-foreground));
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #2DD4BF, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(139, 92, 246, 0.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, #60A5FA, transparent),
+                radial-gradient(1px 1px at 130px 80px, #2DD4BF, transparent),
+                radial-gradient(2px 2px at 160px 30px, rgba(139, 92, 246, 0.6), transparent),
+                radial-gradient(1px 1px at 200px 90px, #60A5FA, transparent);
+            background-repeat: repeat;
+            background-size: 400px 200px;
+            animation: stars-drift 120s linear infinite;
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 700;
+            line-height: 1.1;
+            background: linear-gradient(135deg, hsl(var(--tropical-teal)), hsl(var(--lavender-mist)), hsl(var(--coral-sunset)));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(226, 232, 240, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== TAB CONTENT ===== */
+        .tab-content {
+            display: none;
+            padding: 4rem 2rem;
+            min-height: 80vh;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, hsl(var(--tropical-teal)), hsl(var(--lavender-mist)));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: hsl(var(--muted-foreground));
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== SCENTS GRID - 2x2 LAYOUT ===== */
+        .scents-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .scent-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .scent-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(45, 212, 191, 0.1) 0%, rgba(199, 185, 255, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .scent-card:hover::before {
+            opacity: 1;
+        }
+
+        .scent-card:hover {
+            animation: cardHover 0.3s ease forwards;
+        }
+
+        .scent-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .scent-card:hover .scent-icon {
+            transform: scale(1.2) rotate(8deg);
+            box-shadow: 0 0 30px rgba(45, 212, 191, 0.4);
+        }
+
+        .tropical-icon {
+            background: linear-gradient(135deg, #20B2AA, #48D1CC);
+        }
+
+        .marshmallow-icon {
+            background: linear-gradient(135deg, #DEB887, #D2691E);
+        }
+
+        .lavender-icon {
+            background: linear-gradient(135deg, #9370DB, #DA70D6);
+        }
+
+        .vanilla-icon {
+            background: linear-gradient(135deg, #F5DEB3, #FFEFD5);
+            color: #8B4513;
+        }
+
+        .scent-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: hsl(var(--foreground));
+            position: relative;
+            z-index: 1;
+        }
+
+        .scent-description {
+            color: hsl(var(--muted-foreground));
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, hsl(var(--tropical-teal)), hsl(var(--lavender-mist)));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            animation: glow 4s ease-in-out infinite;
+            color: white;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: hsl(var(--foreground));
+        }
+
+        .feature-description {
+            color: hsl(var(--muted-foreground));
+            font-size: 0.9rem;
+        }
+
+        /* ===== PREORDER FORM ===== */
+        .preorder-form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: hsl(var(--foreground));
+        }
+
+        .form-select {
+            background: rgba(26, 35, 50, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            color: hsl(var(--foreground));
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .form-select:focus {
+            background: rgba(26, 35, 50, 0.6);
+            border-color: hsl(var(--tropical-teal));
+            box-shadow: 0 0 20px rgba(45, 212, 191, 0.2);
+            outline: none;
+        }
+
+        .form-select option {
+            background: hsl(var(--card));
+            color: hsl(var(--foreground));
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(45, 212, 191, 0.2);
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            padding: 1.5rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .faq-question:hover {
+            color: hsl(var(--tropical-teal));
+            padding-left: 15px;
+        }
+
+        .faq-question::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 0;
+            height: 2px;
+            background: hsl(var(--tropical-teal));
+            transition: width 0.3s ease;
+            transform: translateY(-50%);
+        }
+
+        .faq-question:hover::before {
+            width: 8px;
+        }
+
+        .faq-toggle {
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+            color: hsl(var(--tropical-teal));
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            color: hsl(var(--muted-foreground));
+            line-height: 1.6;
+        }
+
+        .faq-answer.active {
+            max-height: 300px;
+            padding: 0 0 1.5rem 0;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-text {
+            color: hsl(var(--muted-foreground));
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            height: 400px;
+            background: linear-gradient(135deg, hsl(var(--tropical-teal)), hsl(var(--lavender-mist)));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        /* ===== SNAKE GAME SECTION (SIMPLIFIED) ===== */
+        .snake-game-section {
+            position: relative;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            background: rgba(26, 35, 50, 0.3);
+            border-radius: 1rem;
+            border: 1px solid rgba(45, 212, 191, 0.2);
+            text-align: center;
+        }
+
+        .snake-game-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .snake-game-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: hsl(var(--tropical-teal));
+        }
+
+        .snake-game-content p {
+            color: hsl(var(--muted-foreground));
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* ===== ENHANCED SNAKE GAME STYLES ===== */
+        .snake-game-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(15px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            transition: all 0.3s ease;
+        }
+
+        .snake-game-overlay.active {
+            display: flex;
+        }
+
+        .game-container {
+            text-align: center;
+            color: white;
+            max-width: 600px;
+            padding: 2rem;
+            animation: scaleIn 0.5s ease forwards;
+            background: rgba(11, 20, 38, 0.8);
+            border-radius: 2rem;
+            border: 2px solid rgba(45, 212, 191, 0.3);
+        }
+
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .game-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: hsl(var(--tropical-teal));
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            color: hsl(var(--muted-foreground));
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-button:hover {
+            color: white;
+            background: rgba(239, 68, 68, 0.2);
+            transform: scale(1.1);
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            background: rgba(26, 35, 50, 0.5);
+            padding: 1rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(45, 212, 191, 0.2);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .stat-value {
+            font-weight: 700;
+            color: hsl(var(--lavender-mist));
+            font-size: 1.5rem;
+        }
+
+        .game-canvas {
+            background: linear-gradient(135deg, hsl(var(--ocean-deep)), hsl(var(--twilight-purple)));
+            border: 3px solid hsl(var(--tropical-teal));
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(45, 212, 191, 0.4), inset 0 0 50px rgba(45, 212, 191, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .game-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .game-instructions {
+            color: hsl(var(--muted-foreground));
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            background: rgba(26, 35, 50, 0.5);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(45, 212, 191, 0.1);
+        }
+
+        .game-message {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, rgba(45, 212, 191, 0.2), rgba(199, 185, 255, 0.2));
+            border: 1px solid rgba(45, 212, 191, 0.5);
+            color: hsl(var(--tropical-teal));
+        }
+
+        .game-over-message {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(249, 115, 22, 0.2));
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            color: #f87171;
+        }
+
+        /* ===== MODAL STYLES ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1500;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: rgba(11, 20, 38, 0.95);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 500px;
+            margin: 2rem;
+            transform: scale(0.9) translateY(50px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: hsl(var(--foreground));
+        }
+
+        /* ===== NEWSLETTER FORM ===== */
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* ===== TOAST NOTIFICATIONS ===== */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(11, 20, 38, 0.95);
+            border: 1px solid rgba(45, 212, 191, 0.5);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            color: hsl(var(--foreground));
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 2500;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            max-width: 300px;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.error {
+            border-color: rgba(239, 68, 68, 0.5);
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .toast.success {
+            border-color: rgba(45, 212, 191, 0.5);
+            background: rgba(45, 212, 191, 0.1);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 0 1rem;
+            }
+
+            .nav-tabs {
+                gap: 1rem;
+            }
+
+            .tab-button {
+                font-size: 0.9rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .hero-section {
+                padding: 6rem 1rem 4rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .scents-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                height: 250px;
+            }
+
+            .modal-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .game-canvas {
+                width: 300px;
+                height: 300px;
+            }
+
+            .floating-elements::before,
+            .floating-elements::after {
+                display: none;
+            }
+
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+
+            .logo-image {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .tab-content {
+                padding: 2rem 1rem;
+            }
+
+            .game-container {
+                padding: 1rem;
+            }
+
+            .game-canvas {
+                width: 280px;
+                height: 280px;
+            }
+
+            .game-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .game-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-tabs {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .tab-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* ===== SCROLLBAR STYLING ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(11, 20, 38, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, hsl(var(--tropical-teal)), hsl(var(--lavender-mist)));
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, hsl(var(--lavender-mist)), hsl(var(--tropical-teal)));
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .entrance-animation { animation: fadeInUp 0.8s ease-out forwards; }
+        .entrance-delay-1 { animation-delay: 0.2s; }
+        .entrance-delay-2 { animation-delay: 0.4s; }
+        .entrance-delay-3 { animation-delay: 0.6s; }
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .text-right { text-align: right; }
+        .mb-1 { margin-bottom: 0.25rem; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-3 { margin-bottom: 0.75rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .p-2 { padding: 0.5rem; }
+        .p-4 { padding: 1rem; }
+        .p-6 { padding: 1.5rem; }
+        .p-8 { padding: 2rem; }
+        .flex { display: flex; }
+        .grid { display: grid; }
+        .hidden { display: none; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .w-full { width: 100%; }
+        .h-full { height: 100%; }
+        .rounded { border-radius: 0.25rem; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .rounded-xl { border-radius: 0.75rem; }
+        .cursor-pointer { cursor: pointer; }
+        .pointer-events-none { pointer-events: none; }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-background"></div>
+    <div class="floating-elements"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-container" id="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">
+                <div class="logo-image"></div>
+                <h1>La M<span class="easter-egg-trigger" onclick="openSnakeGame()" style="background: linear-gradient(90deg, #2DD4BF 0%, #8B5CF6 25%, #60A5FA 50%, #C7B9FF 75%, #2DD4BF 100%); background-size: 200% 200%; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite;">è</span>che</h1>
+            </a>
+            <div class="nav-tabs">
+                <button class="tab-button active" onclick="switchTab('home')">Home</button>
+                <button class="tab-button" onclick="switchTab('scents')">Our Scents</button>
+                <button class="tab-button" onclick="switchTab('preorder')">Pre-Order</button>
+                <button class="tab-button" onclick="switchTab('about')">About Us</button>
+                <button class="tab-button" onclick="switchTab('faq')">FAQ</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Tab Content -->
+    <div id="home-content" class="tab-content active">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title title-entrance">La Mèche</h1>
+                <p class="hero-subtitle subtitle-entrance typewriter">Where Scent Meets Style - Luxury Candles Crafted for Every Moment</p>
+                <div class="hero-cta content-entrance">
+                    <button class="glass-button hover-lift magnetic-button" onclick="switchTab('scents')">Explore Our Scents</button>
+                    <button class="glass-button hover-lift magnetic-button" onclick="switchTab('preorder')">Pre-Order Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="content-container">
+            <h2 class="section-title scroll-reveal">Why Choose La Mèche?</h2>
+            <p class="section-subtitle scroll-reveal">Experience the perfect blend of luxury and sustainability</p>
+
+            <div class="features-grid">
+                <div class="glass-card feature-card hover-lift scroll-reveal interactive-card">
+                    <div class="feature-icon">SOY</div>
+                    <h3 class="feature-title">100% Natural Soy Wax</h3>
+                    <p class="feature-description">Clean burning, eco-friendly soy wax for a sustainable luxury experience</p>
+                </div>
+                <div class="glass-card feature-card hover-lift scroll-reveal entrance-delay-1 interactive-card">
+                    <div class="feature-icon">ART</div>
+                    <h3 class="feature-title">Artisan Crafted</h3>
+                    <p class="feature-description">Hand-poured with precision and care by skilled artisans</p>
+                </div>
+                <div class="glass-card feature-card hover-lift scroll-reveal entrance-delay-2 interactive-card">
+                    <div class="feature-icon">LUX</div>
+                    <h3 class="feature-title">Premium Quality</h3>
+                    <p class="feature-description">Only the finest ingredients and fragrances for exceptional quality</p>
+                </div>
+                <div class="glass-card feature-card hover-lift scroll-reveal entrance-delay-3 interactive-card">
+                    <div class="feature-icon">TIME</div>
+                    <h3 class="feature-title">Long Lasting</h3>
+                    <p class="feature-description">Extended burn time for maximum enjoyment and value</p>
+                </div>
+            </div>
+
+            <!-- Snake Game Section (Simplified) -->
+            <div class="snake-game-section">
+                <div class="snake-game-content">
+                    <h3>Hidden Easter Egg</h3>
+                    <p>We've hidden a classic Snake game somewhere on our website. Can you find the secret trigger? Hint: Look closely at our brand name in the navigation - one letter might be special!</p>
+                    <p style="font-style: italic; font-size: 0.9rem;">Once you find it, you'll unlock our retro gaming experience where you can collect candles instead of apples!</p>
+                </div>
+            </div>
+
+            <!-- Creator Description Section -->
+            <div class="premium-border" style="margin-top: 4rem;">
+                <div class="premium-border-inner">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; color: hsl(var(--tropical-teal));">About This Website</h3>
+                    <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                        <p style="color: hsl(var(--muted-foreground)); line-height: 1.7; margin-bottom: 1.5rem; font-size: 1.1rem;">
+                            This website was created by one of the La Meche business team members to provide our customers with a better digital experience and to offer them exclusive discounts on our luxury candle collection.
+                        </p>
+                        <p style="color: hsl(var(--muted-foreground)); line-height: 1.7; font-size: 1rem;">
+                            Our goal was to bridge the gap between our physical products and digital presence, ensuring that every customer can easily access information about our candles, place pre-orders, and enjoy special promotional offers through this interactive platform.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scents Tab Content -->
+    <div id="scents-content" class="tab-content">
+        <div class="content-container">
+            <h2 class="section-title">Our Signature Scents</h2>
+            <p class="section-subtitle">Discover our carefully curated collection of luxury scented candles</p>
+
+            <div class="scents-grid">
+                <div class="glass-card scent-card hover-glow interactive-card">
+                    <div class="scent-icon tropical-icon">TROP</div>
+                    <h3 class="scent-title">Tropical Paradise</h3>
+                    <p class="scent-description">A trip to the blue lagoon, enjoy this tropical taste.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <button class="glass-button magnetic-button" onclick="openPreorderModal('Tropical Paradise')">Pre-Order</button>
+                    </div>
+                </div>
+
+                <div class="glass-card scent-card hover-glow interactive-card">
+                    <div class="scent-icon marshmallow-icon">MARS</div>
+                    <h3 class="scent-title">Toasted Marshmallow</h3>
+                    <p class="scent-description">Celebrate new memories with this campfire.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <button class="glass-button magnetic-button" onclick="openPreorderModal('Toasted Marshmallow')">Pre-Order</button>
+                    </div>
+                </div>
+
+                <div class="glass-card scent-card hover-glow interactive-card">
+                    <div class="scent-icon lavender-icon">LAV</div>
+                    <h3 class="scent-title">Lavender Fields</h3>
+                    <p class="scent-description">Stop to smell the flowers with our vibrant floral scent.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <button class="glass-button magnetic-button" onclick="openPreorderModal('Lavender Fields')">Pre-Order</button>
+                    </div>
+                </div>
+
+                <div class="glass-card scent-card hover-glow interactive-card">
+                    <div class="scent-icon vanilla-icon">VAN</div>
+                    <h3 class="scent-title">Classic Vanilla</h3>
+                    <p class="scent-description">Calm your senses with a classic vanilla scent.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <button class="glass-button magnetic-button" onclick="openPreorderModal('Classic Vanilla')">Pre-Order</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scent Details -->
+            <div class="premium-border" style="margin-top: 3rem;">
+                <div class="premium-border-inner">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; color: hsl(var(--tropical-teal));">What Makes Our Candles Special</h3>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                        <div style="text-align: center;" class="interactive-card">
+                            <div style="width: 60px; height: 60px; margin: 0 auto 1rem; border-radius: 50%; background: linear-gradient(135deg, #2DD4BF, #C7B9FF); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; font-weight: 600;">WICK</div>
+                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Premium Wicks</h4>
+                            <p style="color: hsl(var(--muted-foreground)); font-size: 0.9rem;">Cotton wicks for clean, even burning</p>
+                        </div>
+
+                        <div style="text-align: center;" class="interactive-card">
+                            <div style="width: 60px; height: 60px; margin: 0 auto 1rem; border-radius: 50%; background: linear-gradient(135deg, #2DD4BF, #C7B9FF); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; font-weight: 600;">50H</div>
+                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">50+ Hour Burn</h4>
+                            <p style="color: hsl(var(--muted-foreground)); font-size: 0.9rem;">Extended enjoyment with every candle</p>
+                        </div>
+
+                        <div style="text-align: center;" class="interactive-card">
+                            <div style="width: 60px; height: 60px; margin: 0 auto 1rem; border-radius: 50%; background: linear-gradient(135deg, #2DD4BF, #C7B9FF); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; font-weight: 600;">ECO</div>
+                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Eco-Friendly</h4>
+                            <p style="color: hsl(var(--muted-foreground)); font-size: 0.9rem;">Sustainable packaging and ingredients</p>
+                        </div>
+
+                        <div style="text-align: center;" class="interactive-card">
+                            <div style="width: 60px; height: 60px; margin: 0 auto 1rem; border-radius: 50%; background: linear-gradient(135deg, #2DD4BF, #C7B9FF); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; font-weight: 600;">GIFT</div>
+                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Gift Ready</h4>
+                            <p style="color: hsl(var(--muted-foreground)); font-size: 0.9rem;">Beautiful packaging for any occasion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pre-Order Tab Content -->
+    <div id="preorder-content" class="tab-content">
+        <div class="content-container">
+            <h2 class="section-title">Pre-Order Your Favorites</h2>
+            <p class="section-subtitle">Be the first to experience our luxury candles with exclusive pre-order pricing</p>
+
+            <div class="glass-card preorder-form interactive-card">
+                <form id="preorder-form" method="POST" action="/api/preorders">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="glass-input" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="glass-input" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="scent">Choose Your Scent</label>
+                        <select id="scent" name="scent" class="form-select" required>
+                            <option value="">Select a scent</option>
+                            <option value="tropical">Tropical Paradise - $6.00</option>
+                            <option value="marshmallow">Toasted Marshmallow - $6.00</option>
+                            <option value="lavender">Lavender Fields - $6.00</option>
+                            <option value="vanilla">Classic Vanilla - $6.00</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="quantity">Quantity</label>
+                        <select id="quantity" name="quantity" class="form-select" required>
+                            <option value="">Select quantity</option>
+                            <option value="1">1 Candle</option>
+                            <option value="2">2 Candles (5% off)</option>
+                            <option value="3">3 Candles (10% off)</option>
+                            <option value="4">4+ Candles (15% off)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone" class="glass-input" placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="address">Contact Address</label>
+                        <textarea id="address" name="address" class="glass-input" rows="3" placeholder="Enter your contact address" required style="resize: vertical; min-height: 80px;"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="checkbox" name="newsletter" id="newsletter" style="width: 1rem; height: 1rem; accent-color: hsl(var(--tropical-teal));">
+                            <span class="form-label" style="margin: 0; font-size: 0.9rem;">Send me updates about new collections and exclusive offers</span>
+                        </label>
+                    </div>
+
+                    <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(45, 212, 191, 0.1); border: 1px solid rgba(45, 212, 191, 0.3); border-radius: 0.5rem;">
+                        <h4 style="color: hsl(var(--tropical-teal)); margin-bottom: 1rem; font-size: 1.1rem;">Pre-Order Benefits:</h4>
+                        <ul style="color: hsl(var(--muted-foreground)); line-height: 1.6;">
+                            <li>• Special pre-order price of $6 per candle</li>
+                            <li>• In-person pickup available at locations</li>
+                            <li>• Priority access to the scents</li>
+                            
+                        </ul>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="glass-button hover-lift magnetic-button" style="padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600;">
+                            Get My Discount Code
+                        </button>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: hsl(var(--muted-foreground));">
+                            Your unique serial code will be sent to your email instantly
+                        </p>
+                    </div>
+                    
+                    <!-- Success Message Container -->
+                    <div id="success-container" style="display: none; margin-top: 2rem; padding: 2rem; background: rgba(45, 212, 191, 0.1); border: 2px solid rgba(45, 212, 191, 0.4); border-radius: 1rem; text-align: center;">
+                        <h3 style="color: hsl(var(--tropical-teal)); margin-bottom: 1rem; font-size: 1.5rem;">🎉 Welcome to La Mèche!</h3>
+                        <p style="margin-bottom: 1rem;">Your exclusive discount code:</p>
+                        <div id="discount-code" style="background: rgba(0, 0, 0, 0.4); border: 2px solid hsl(var(--tropical-teal)); border-radius: 0.5rem; padding: 1rem; font-family: monospace; font-size: 1.5rem; font-weight: bold; color: hsl(var(--tropical-teal)); letter-spacing: 3px; margin-bottom: 1rem;"></div>
+                        <p style="color: #FFD700; font-weight: bold; margin-bottom: 1rem;">⚠️ IMPORTANT: Write this code down and show it to us in person when purchasing!</p>
+                        <p style="font-size: 0.9rem; color: hsl(var(--muted-foreground));">This code has also been sent to your email. Save it safely!</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Tab Content -->
+    <div id="about-content" class="tab-content">
+        <div class="content-container">
+            <h2 class="section-title">About La Mèche</h2>
+            <p class="section-subtitle">Market Research & Business Approach</p>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <p>La Meche is more than just wax in a jar; it's all about mood, identity, and connection. Our main business aim is to produce and sell a product that reflects current trends in youth lifestyle while also staying affordable for our target market, which includes students and young adults aged 15-25.</p>
+
+                    <p>Each role in our team was structured around real business departments from marketing, finance to design operations, ensuring we covered all the necessary areas of business functions. Through this structure, our team is able to operate effectively. For example, our CFOs manage budgeting and break-even analysis, while our marketing team uses the containers insights to build strong branding.</p>
+
+                    <p>What makes our business stand out is how we've taken consumer feedback seriously. From analysing survey data around design preference, scent choice, and packaging importance, we've developed a strong understanding of what our audience wants. Our business operates on market orientation, meaning we shape our product based on the needs and preferences of the customer.</p>
+
+                    <p>This was shown clearly through our decision to move forward with Tropical and Vanilla candles after reviewing our survey results.</p>
+                </div>
+
+                <div class="about-image interactive-card" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImJnR3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMkRENEJGO3N0b3Atb3BhY2l0eToxIiAvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3R5bGU9InN0b3AtY29sb3I6I0M3QjlGRjtzdG9wLW9wYWNpdHk6MSIgLz4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMkRENEJGO3N0b3Atb3BhY2l0eToxIiAvPgo8L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9ImNhbmRsZSIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzJERDRCRjtzdG9wLW9wYWNpdHk6MC45IiAvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3R5bGU9InN0b3AtY29sb3I6I0M3QjlGRjtzdG9wLW9wYWNpdHk6MC44IiAvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMyREQ0QkY7c3RvcC1vcGFjaXR5OjAuOSIgLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJmbGFtZSIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRDcwMDtzdG9wLW9wYWNpdHk6MSIgLz4KPHN0b3Agb2Zmc2V0PSI1MCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNGRkE1MDA7c3RvcC1vcGFjaXR5OjAuOSIgLz4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojRkY2OTQ1O3N0b3Atb3BhY2l0eTowLjgiIC8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9InVybCgjYmdHcmFkaWVudCkiLz4KPHJlY3QgeD0iMTQwIiB5PSIxNjAiIHdpZHRoPSIxMjAiIGhlaWdodD0iMjAwIiBmaWxsPSJ1cmwoI2NhbmRsZSkiIHJ4PSIxNSIvPgo8cmVjdCB4PSIxNTAiIHk9IjE3MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxODAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIgcng9IjgiLz4KPHJlY3QgeD0iMTkwIiB5PSIxNDAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzY2NiIgcng9IjMiLz4KPGVsbGlwc2UgY3g9IjIwMCIgY3k9IjEyNSIgcng9IjIwIiByeT0iMzUiIGZpbGw9InVybCgjZmxhbWUpIiBvcGFjaXR5PSIwLjkiLz4KPGVsbGlwc2UgY3g9IjIwNSIgY3k9IjEyMCIgcng9IjEwIiByeT0iMjAiIGZpbGw9IiNGRkQ3MDAiIG9wYWNpdHk9IjAuNyIvPgo8L3N2Zz4K'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+
+            <!-- Mission Values -->
+            <div class="premium-border">
+                <div class="premium-border-inner">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center; color: hsl(var(--tropical-teal));">Our Values</h3>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                        <div class="glass-card interactive-card" style="padding: 1.5rem; text-align: center;">
+                            <div style="width: 60px; height: 60px; margin: 0 auto 1rem; border-radius: 50%; background: linear-gradient(135deg, #2DD4BF, #C7B9FF); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; font-weight: 600;">ECO</div>
+                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Sustainability</h4>
+                            <p style="color: hsl(var(--muted-foreground)); font-size: 0.9rem;">Committed to eco-friendly practices in every step of our process</p>
+                        </div>
+
+                        <div class="glass-card interactive-card" style="padding: 1.5rem; text-align: center;">
+                            <div style="width: 60px; height: 60px; margin: 0 auto 1rem; border-radius: 50%; background: linear-gradient(135deg, #2DD4BF, #C7B9FF); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; font-weight: 600;">QUAL</div>
+                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Quality</h4>
+                            <p style="color: hsl(var(--muted-foreground)); font-size: 0.9rem;">Only the finest ingredients make it into our candles</p>
+                        </div>
+
+                        <div class="glass-card interactive-card" style="padding: 1.5rem; text-align: center;">
+                            <div style="width: 60px; height: 60px; margin: 0 auto 1rem; border-radius: 50%; background: linear-gradient(135deg, #2DD4BF, #C7B9FF); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; font-weight: 600;">ART</div>
+                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Artistry</h4>
+                            <p style="color: hsl(var(--muted-foreground)); font-size: 0.9rem;">Each candle is a work of art, carefully crafted by hand</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <!-- FAQ Tab Content -->
+    <div id="faq-content" class="tab-content">
+        <div class="content-container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know about our luxury candles</p>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What makes La Mèche candles different from others?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our candles are crafted with 100% natural soy wax, premium cotton wicks, and carefully curated fragrances. Each candle is hand-poured by skilled artisans and designed to provide over 50 hours of clean, even burning. We also prioritize sustainability in our packaging and sourcing.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How long do your candles burn?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our standard-sized candles provide approximately 50-60 hours of burn time when used properly. To maximize burn time, always trim the wick to 1/4 inch before lighting and avoid burning for more than 4 hours at a time.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Are your candles eco-friendly?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We use 100% natural soy wax, which burns cleaner than paraffin. Our wicks are made from cotton, our packaging is recyclable, and we source our materials from sustainable suppliers. We're committed to creating luxury products that don't harm the environment.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How can I get my candles?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer in-person pickup at select locations. Pickup dates and locations will be announced to pre-order customers first. This allows us to maintain quality control and provide a personal touch to your candle experience.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I customize scents or create custom orders?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Currently, we offer our carefully curated collection of four signature scents. However, we're exploring custom scent options for the future. Sign up for our newsletter to be the first to know about new offerings and custom order opportunities.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you offer refunds or exchanges?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We stand behind the quality of our products. If you're not completely satisfied with your purchase, we offer a 30-day return policy for unused items in original packaging. For damaged items, we'll provide immediate replacement or full refund.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How should I care for my candle?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For optimal performance: trim wick to 1/4 inch before each use, burn for no more than 4 hours at a time, keep away from drafts, and ensure the wax pool reaches the edges on first burn. Store in a cool, dry place away from direct sunlight.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Are your candles safe around pets?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our soy wax candles are generally safer than paraffin candles around pets since they don't release harmful chemicals. However, always keep candles out of reach of pets, ensure proper ventilation, and never leave burning candles unattended around animals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Snake Game Modal -->
+    <div id="snake-game" class="snake-game-overlay">
+        <div class="game-container">
+            <div class="game-header">
+                <h2 class="game-title">La Mèche Snake</h2>
+                <button class="close-button" onclick="closeSnakeGame()">×</button>
+            </div>
+
+            <div class="game-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Score</span>
+                    <span class="stat-value" id="score">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">High Score</span>
+                    <span class="stat-value" id="high-score">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Level</span>
+                    <span class="stat-value" id="level">1</span>
+                </div>
+            </div>
+
+            <canvas id="game-canvas" class="game-canvas" width="400" height="400"></canvas>
+
+            <div class="game-controls">
+                <button onclick="startGame()" class="glass-button magnetic-button">Start Game</button>
+                <button onclick="pauseGame()" class="glass-button magnetic-button" id="pause-btn">Pause</button>
+                <button onclick="closeSnakeGame()" class="glass-button magnetic-button">Close</button>
+            </div>
+
+            <div class="game-instructions">
+                <p>Use WASD or Arrow Keys to control the snake</p>
+                <p>Collect candles to grow and increase your score!</p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Pre-order Modal -->
+    <div id="preorder-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="preorder-modal-title">Pre-Order Candle</h3>
+                <button class="close-button" onclick="closePreorderModal()">×</button>
+            </div>
+
+            <div style="text-center; margin-bottom: 1.5rem;">
+                <p style="color: hsl(var(--muted-foreground));">Quick pre-order for your selected scent</p>
+            </div>
+
+            <form class="newsletter-form" id="quick-preorder-form">
+                <div class="form-group">
+                    <label class="form-label" for="quick-name">Full Name</label>
+                    <input type="text" id="quick-name" name="name" class="glass-input" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="quick-email">Email Address</label>
+                    <input type="email" id="quick-email" name="email" class="glass-input" placeholder="Enter your email" required>
+                </div>
+
+                <button type="submit" class="glass-button w-full hover-lift magnetic-button">Add to Pre-Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script>
+        // ===== GLOBAL STATE =====
+        let gameRunning = false;
+        let gamePaused = false;
+        let snake = [{x: 200, y: 200}];
+        let direction = {x: 0, y: 0};
+        let food = {x: 0, y: 0};
+        let score = 0;
+        let level = 1;
+        let gameSpeed = 150;
+        let highScore = localStorage.getItem('lameche-snake-high-score') || 0;
+        let selectedScent = '';
+
+        // ===== INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            updateHighScore();
+            startParticleSystem();
+            initScrollAnimations();
+            initNavbarScroll();
+
+            
+        });
+
+        // ===== TAB FUNCTIONALITY =====
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName + '-content').classList.add('active');
+
+            // Add active class to clicked tab button
+            event.target.classList.add('active');
+
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Trigger scroll animations
+            setTimeout(initScrollAnimations, 100);
+        }
+
+        // ===== NAVBAR SCROLL EFFECT =====
+        function initNavbarScroll() {
+            window.addEventListener('scroll', function() {
+                const navbar = document.getElementById('navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // ===== SCROLL ANIMATIONS =====
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // ===== PARTICLE SYSTEM =====
+        function startParticleSystem() {
+            const floatingElements = document.querySelector('.floating-elements');
+
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+
+                const size = Math.random() * 4 + 2;
+                const left = Math.random() * window.innerWidth;
+                const duration = Math.random() * 3 + 2;
+
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = left + 'px';
+                particle.style.animationDuration = duration + 's';
+
+                floatingElements.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.remove();
+                }, duration * 1000);
+            }
+
+            setInterval(createParticle, 3000);
+        }
+
+        // ===== MODAL FUNCTIONS =====
+
+        function openPreorderModal(scent) {
+            selectedScent = scent;
+            document.getElementById('preorder-modal-title').textContent = `Pre-Order ${scent}`;
+            document.getElementById('preorder-modal').classList.add('active');
+        }
+
+        function closePreorderModal() {
+            document.getElementById('preorder-modal').classList.remove('active');
+        }
+
+        // ===== FAQ FUNCTIONALITY =====
+        function toggleFAQ(button) {
+            const faqItem = button.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const isActive = faqItem.classList.contains('active');
+
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-answer').classList.remove('active');
+            });
+
+            if (!isActive) {
+                faqItem.classList.add('active');
+                answer.classList.add('active');
+            }
+        }
+
+        // ===== ENHANCED SNAKE GAME LOGIC =====
+        function openSnakeGame() {
+            document.getElementById('snake-game').classList.add('active');
+            showToast("You found our hidden snake game! Enjoy playing!", 'success');
+        }
+
+        function closeSnakeGame() {
+            document.getElementById('snake-game').classList.remove('active');
+            gameRunning = false;
+            gamePaused = false;
+            resetGame();
+        }
+
+        function updateHighScore() {
+            document.getElementById('high-score').textContent = highScore;
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+            if (score > highScore) {
+                highScore = score;
+                localStorage.setItem('lameche-snake-high-score', highScore);
+                updateHighScore();
+            }
+        }
+
+        function updateLevel() {
+            const newLevel = Math.floor(score / 50) + 1;
+            if (newLevel > level) {
+                level = newLevel;
+                gameSpeed = Math.max(80, 150 - (level * 10));
+                document.getElementById('level').textContent = level;
+                showToast(`Level ${level} reached! Speed increased!`, 'success');
+            }
+        }
+
+        function resetGame() {
+            snake = [{x: 200, y: 200}];
+            direction = {x: 0, y: 0};
+            score = 0;
+            level = 1;
+            gameSpeed = 150;
+            gameRunning = false;
+            gamePaused = false;
+            generateFood();
+            updateScore();
+            document.getElementById('level').textContent = level;
+            document.getElementById('pause-btn').textContent = 'Pause';
+        }
+
+        function startGame() {
+            resetGame();
+            gameRunning = true;
+            direction = {x: 20, y: 0};
+            gameLoop();
+        }
+
+        function pauseGame() {
+            if (!gameRunning) return;
+
+            gamePaused = !gamePaused;
+            const pauseBtn = document.getElementById('pause-btn');
+
+            if (gamePaused) {
+                pauseBtn.textContent = 'Resume';
+                showToast('Game paused', 'success');
+            } else {
+                pauseBtn.textContent = 'Pause';
+                gameLoop();
+            }
+        }
+
+        function generateFood() {
+            let newFood;
+            let validPosition = false;
+
+            while (!validPosition) {
+                newFood = {
+                    x: Math.floor(Math.random() * 20) * 20,
+                    y: Math.floor(Math.random() * 20) * 20
+                };
+
+                validPosition = !snake.some(segment => 
+                    segment.x === newFood.x && segment.y === newFood.y
+                );
+            }
+
+            food = newFood;
+        }
+
+        function gameLoop() {
+            if (!gameRunning || gamePaused) return;
+
+            const canvas = document.getElementById('game-canvas');
+            const ctx = canvas.getContext('2d');
+
+            // Move snake
+            const head = {x: snake[0].x + direction.x, y: snake[0].y + direction.y};
+
+            // Check wall collision
+            if (head.x < 0 || head.x >= 400 || head.y < 0 || head.y >= 400) {
+                gameRunning = false;
+                showGameOverMessage();
+                return;
+            }
+
+            // Check self collision
+            for (let segment of snake) {
+                if (head.x === segment.x && head.y === segment.y) {
+                    gameRunning = false;
+                    showGameOverMessage();
+                    return;
+                }
+            }
+
+            snake.unshift(head);
+
+            // Check food collision
+            if (head.x === food.x && head.y === food.y) {
+                score += 10;
+                updateScore();
+                updateLevel();
+                generateFood();
+
+                if (score % 50 === 0 && score > 0) {
+                    showToast(`${score / 10} candles collected! Amazing!`, 'success');
+                }
+            } else {
+                snake.pop();
+            }
+
+            // Clear canvas with gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 400, 400);
+            gradient.addColorStop(0, '#0B1426');
+            gradient.addColorStop(0.5, '#1A0B2E');
+            gradient.addColorStop(1, '#0F172A');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 400, 400);
+
+            // Add grid pattern
+            ctx.strokeStyle = 'rgba(45, 212, 191, 0.1)';
+            ctx.lineWidth = 1;
+            for (let i = 0; i <= 400; i += 20) {
+                ctx.beginPath();
+                ctx.moveTo(i, 0);
+                ctx.lineTo(i, 400);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(0, i);
+                ctx.lineTo(400, i);
+                ctx.stroke();
+            }
+
+            // Draw snake with enhanced graphics
+            ctx.shadowBlur = 10;
+            for (let i = 0; i < snake.length; i++) {
+                const segment = snake[i];
+                const intensity = 1 - (i / snake.length) * 0.5;
+
+                if (i === 0) {
+                    ctx.shadowColor = '#2DD4BF';
+                    ctx.fillStyle = '#2DD4BF';
+                } else {
+                    ctx.shadowColor = `rgba(45, 212, 191, ${intensity * 0.5})`;
+                    ctx.fillStyle = `rgba(45, 212, 191, ${intensity})`;
+                }
+
+                ctx.fillRect(segment.x + 1, segment.y + 1, 18, 18);
+
+                if (i === 0) {
+                    ctx.shadowBlur = 0;
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                    ctx.fillRect(segment.x + 4, segment.y + 4, 12, 12);
+                    ctx.shadowBlur = 10;
+                }
+            }
+
+            // Draw food (candle) with special effects
+            ctx.shadowColor = '#C7B9FF';
+            ctx.shadowBlur = 15;
+
+            ctx.fillStyle = '#C7B9FF';
+            ctx.fillRect(food.x + 2, food.y + 2, 16, 16);
+
+            ctx.shadowBlur = 20;
+            ctx.fillStyle = '#FFD700';
+            ctx.fillRect(food.x + 7, food.y + 1, 6, 8);
+
+            ctx.shadowColor = '#FFA500';
+            ctx.fillStyle = 'rgba(255, 165, 0, 0.6)';
+            ctx.fillRect(food.x + 8, food.y + 2, 4, 6);
+
+            ctx.shadowBlur = 0;
+
+            setTimeout(gameLoop, gameSpeed);
+        }
+
+        function showGameOverMessage() {
+            const finalScore = score;
+            const isHighScore = finalScore > (highScore - finalScore);
+
+            let message = `Game Over! Final Score: ${finalScore}`;
+            if (isHighScore && finalScore > 0) {
+                message += ' - New High Score!';
+            }
+            if (finalScore >= 100) {
+                message += ' Excellent candle collecting skills!';
+            } else if (finalScore >= 50) {
+                message += ' Great job lighting up the darkness!';
+            }
+
+            showToast(message, finalScore > 0 ? 'success' : 'error');
+        }
+
+        // Enhanced keyboard controls
+        document.addEventListener('keydown', (e) => {
+            if (!gameRunning || gamePaused) return;
+
+            const key = e.key.toLowerCase();
+            let newDirection = null;
+
+            switch(key) {
+                case 'w':
+                case 'arrowup':
+                    if (direction.y === 0) newDirection = {x: 0, y: -20};
+                    break;
+                case 's':
+                case 'arrowdown':
+                    if (direction.y === 0) newDirection = {x: 0, y: 20};
+                    break;
+                case 'a':
+                case 'arrowleft':
+                    if (direction.x === 0) newDirection = {x: -20, y: 0};
+                    break;
+                case 'd':
+                case 'arrowright':
+                    if (direction.x === 0) newDirection = {x: 20, y: 0};
+                    break;
+                case ' ':
+                case 'p':
+                    e.preventDefault();
+                    pauseGame();
+                    return;
+            }
+
+            if (newDirection) {
+                direction = newDirection;
+                e.preventDefault();
+            }
+        });
+
+        // ===== FORM HANDLERS =====
+        document.getElementById('preorder-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Convert form data to expected format
+            const preorderData = {
+                name: data.name,
+                email: data.email,
+                preferredScent: data.scent,
+                newsletter: data.newsletter === 'on'
+            };
+
+            try {
+                const response = await fetch('/api/preorders', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(preorderData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    // Show success message with discount code
+                    document.getElementById('discount-code').textContent = result.discountCode;
+                    document.getElementById('success-container').style.display = 'block';
+                    showToast('Discount code sent to your email!', 'success');
+                    
+                    // Hide the form
+                    this.style.display = 'none';
+                    
+                    // Scroll to success message
+                    document.getElementById('success-container').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    if (result.message && result.message.includes('already registered')) {
+                        showToast('Email already registered! Check your inbox for your discount code.', 'error');
+                        if (result.discountCode) {
+                            document.getElementById('discount-code').textContent = result.discountCode;
+                            document.getElementById('success-container').style.display = 'block';
+                            this.style.display = 'none';
+                        }
+                    } else {
+                        showToast('Error: ' + (result.message || 'Something went wrong'), 'error');
+                    }
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showToast('Network error. Please try again.', 'error');
+            }
+        });
+
+        
+
+        document.getElementById('quick-preorder-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            data.scent = selectedScent;
+
+            showToast(`${selectedScent} added to your pre-order! Check your email for pickup details.`, 'success');
+            closePreorderModal();
+            this.reset();
+
+            console.log('Quick pre-order:', data);
+        });
+
+        // ===== TOAST NOTIFICATION SYSTEM =====
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast ${type}`;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+
+        // ===== CLICK OUTSIDE TO CLOSE MODALS =====
+        document.addEventListener('click', function(e) {
+            const preorderModal = document.getElementById('preorder-modal');
+
+            if (e.target === preorderModal) {
+                closePreorderModal();
+            }
+        });
+
+        // ===== ACCESSIBILITY ENHANCEMENTS =====
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePreorderModal();
+                closeSnakeGame();
+            }
+        });
+
+        console.log('La Mèche website loaded successfully! Enjoy exploring our luxury candles.');
+        console.log('Hint: Try clicking the "è" in our logo for a hidden surprise!');
+    </script>
+    <script>
+  const form = document.getElementById('preorder-form');
+  const successContainer = document.getElementById('success-container');
+  const discountCodeDisplay = document.getElementById('discount-code');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const res = await fetch('/api/preorders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+
+      if (res.ok) {
+        discountCodeDisplay.textContent = result.discountCode;
+        successContainer.style.display = 'block';
+        form.style.display = 'none';
+      } else {
+        alert(result.message || 'Something went wrong.');
+      }
+    } catch (err) {
+      alert('Error submitting the form.');
+      console.error(err);
+    }
+  });
+</script>
+</body>
+</html>

@@ -58,7 +58,7 @@ export const storage = {
       .delete(preorders)
       .where(eq(preorders.id, id));
     
-    return result.rowCount > 0;
+    return (result.rowCount ?? 0) > 0;
   },
 
   async getPreorderStats(): Promise<{
