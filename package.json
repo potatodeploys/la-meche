@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node --loader ts-node/esm index.ts",
     "build": "tsc && npm run copy-client",
-    "copy-client": "xcopy /E /I /Y client\\dist dist\\client",
+    "copy-client": "cp -r client/dist dist/client",
     "start": "node dist/index.js",
     "db:generate": "drizzle-kit generate:pg",
     "db:push": "drizzle-kit push:pg",
