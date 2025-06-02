@@ -1444,7 +1444,7 @@
         <div class="nav-content">
             <a href="#" class="logo">
                 <div class="logo-image"></div>
-                <h1>La M<span class="easter-egg-trigger" onclick="openSnakeGame()">è</span>che</h1>
+                <h1>La M<span class="easter-egg-trigger" onclick="openSnakeGame()" style="background: linear-gradient(90deg, #2DD4BF 0%, #8B5CF6 25%, #60A5FA 50%, #C7B9FF 75%, #2DD4BF 100%); background-size: 200% 200%; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite;">è</span>che</h1>
             </a>
             <div class="nav-tabs">
                 <button class="tab-button active" onclick="switchTab('home')">Home</button>
@@ -1739,14 +1739,7 @@
                 </div>
             </div>
 
-            <!-- Newsletter Signup -->
-            <div class="text-center" style="margin-top: 3rem;">
-                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: hsl(var(--foreground));">Stay Connected</h3>
-                <p style="color: hsl(var(--muted-foreground)); margin-bottom: 1.5rem;">Join our newsletter for exclusive updates and early access to new collections</p>
-                <button class="glass-button hover-lift magnetic-button" onclick="openNewsletterModal()">
-                    Subscribe to Newsletter
-                </button>
-            </div>
+            
         </div>
     </div>
 
@@ -1878,39 +1871,7 @@
         </div>
     </div>
 
-    <!-- Newsletter Modal -->
-    <div id="newsletter-modal" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Join Our Newsletter</h3>
-                <button class="close-button" onclick="closeNewsletterModal()">×</button>
-            </div>
-
-            <form class="newsletter-form" id="newsletter-form">
-                <div class="form-group">
-                    <label class="form-label" for="newsletter-email">Email Address</label>
-                    <input type="email" id="newsletter-email" name="email" class="glass-input" placeholder="Enter your email" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="newsletter-name">First Name (Optional)</label>
-                    <input type="text" id="newsletter-name" name="name" class="glass-input" placeholder="Enter your first name">
-                </div>
-
-                <div style="margin: 1.5rem 0; padding: 1rem; background: rgba(45, 212, 191, 0.1); border: 1px solid rgba(45, 212, 191, 0.3); border-radius: 0.5rem;">
-                    <h4 style="color: hsl(var(--tropical-teal)); margin-bottom: 0.5rem; font-size: 1rem;">Newsletter Benefits:</h4>
-                    <ul style="color: hsl(var(--muted-foreground)); font-size: 0.9rem; line-height: 1.5; margin-left: 1rem;">
-                        <li>Early access to new scent collections</li>
-                        <li>Exclusive subscriber-only discounts</li>
-                        <li>Behind-the-scenes content</li>
-                        <li>Pickup location announcements</li>
-                    </ul>
-                </div>
-
-                <button type="submit" class="glass-button w-full hover-lift magnetic-button">Subscribe</button>
-            </form>
-        </div>
-    </div>
+    
 
     <!-- Pre-order Modal -->
     <div id="preorder-modal" class="modal-overlay">
@@ -1963,13 +1924,7 @@
             initScrollAnimations();
             initNavbarScroll();
 
-            // Show newsletter modal after 30 seconds
-            setTimeout(() => {
-                if (!localStorage.getItem('newsletter-shown')) {
-                    openNewsletterModal();
-                    localStorage.setItem('newsletter-shown', 'true');
-                }
-            }, 30000);
+            
         });
 
         // ===== TAB FUNCTIONALITY =====
@@ -2055,13 +2010,6 @@
         }
 
         // ===== MODAL FUNCTIONS =====
-        function openNewsletterModal() {
-            document.getElementById('newsletter-modal').classList.add('active');
-        }
-
-        function closeNewsletterModal() {
-            document.getElementById('newsletter-modal').classList.remove('active');
-        }
 
         function openPreorderModal(scent) {
             selectedScent = scent;
@@ -2397,18 +2345,7 @@
             }
         });
 
-        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-
-            showToast('Successfully subscribed to newsletter! Welcome to La Mèche family.', 'success');
-            closeNewsletterModal();
-            this.reset();
-
-            console.log('Newsletter subscription:', data);
-        });
+        
 
         document.getElementById('quick-preorder-form').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -2438,12 +2375,8 @@
 
         // ===== CLICK OUTSIDE TO CLOSE MODALS =====
         document.addEventListener('click', function(e) {
-            const newsletterModal = document.getElementById('newsletter-modal');
             const preorderModal = document.getElementById('preorder-modal');
 
-            if (e.target === newsletterModal) {
-                closeNewsletterModal();
-            }
             if (e.target === preorderModal) {
                 closePreorderModal();
             }
@@ -2452,7 +2385,6 @@
         // ===== ACCESSIBILITY ENHANCEMENTS =====
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                closeNewsletterModal();
                 closePreorderModal();
                 closeSnakeGame();
             }

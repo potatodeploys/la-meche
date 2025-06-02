@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import path from "path";
 import { storage } from "./storage";
-import { insertPreorderSchema } from "@shared/schema";
+import { insertPreorderSchema } from "./shared/schema";
 import { z } from "zod";
 import crypto from "crypto";
 import { MailService } from '@sendgrid/mail';
