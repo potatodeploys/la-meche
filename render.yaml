@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: la-meche-api
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: pnpm install && pnpm run build
+    startCommand: pnpm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SENDGRID_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
