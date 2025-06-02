@@ -1,4 +1,4 @@
-import { db } from "./db";
+import { db } from "./db.js";
 import { preorders } from "./shared/schema";
 import { eq } from "drizzle-orm";
 export const storage = {
