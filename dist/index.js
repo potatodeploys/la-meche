@@ -2,8 +2,13 @@ import "dotenv/config";
 import express from "express";
 import { createServer } from "http";
 import { registerRoutes } from "./routes.js";
+import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
-app.use(express.static("client/dist"));
+// Serve built frontend (e.g. from Vite or static HTML)
+app.use(express.static(path.resolve(__dirname, "client/dist")));
 app.use("/static-site", express.static("static-site"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -34,6 +39,10 @@ app.use((req, res, next) => {
         const status = err.status || 500;
         res.status(status).json({ message: err.message || "Internal Server Error" });
         console.log(`❌ ${err.message}`);
+    });
+    // ✅ Serve index.html as fallback for all non-API routes
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "client/dist/index.html"));
     });
     const server = createServer(app);
     const port = 5001;
