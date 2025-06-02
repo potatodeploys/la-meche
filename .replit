@@ -6,8 +6,8 @@ channel = "stable-24_11"
 packages = ["static-web-server"]
 
 [deployment]
-publicDir = "/"
-deploymentTarget = "static"
+run = "npm start"
+deploymentTarget = "autoscale"
 
 [workflows]
 runButton = "Development Server"
