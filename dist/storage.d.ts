@@ -1,4 +1,4 @@
-import type { InsertPreorder, Preorder } from "./shared/schema";
+import type { InsertPreorder, Preorder } from "./shared/schema.js";
 export declare const storage: {
     createPreorder(data: InsertPreorder, discountCode: string): Promise<Preorder>;
     getPreorderByEmail(email: string): Promise<Preorder | null>;

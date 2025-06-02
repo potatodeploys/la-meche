@@ -1,8 +1,8 @@
 
 import { db } from "./db.js";
-import { preorders } from "./shared/schema";
+import { preorders } from "./shared/schema.js";
 import { eq } from "drizzle-orm";
-import type { InsertPreorder, Preorder } from "./shared/schema";
+import type { InsertPreorder, Preorder } from "./shared/schema.js";
 
 export const storage = {
   async createPreorder(data: InsertPreorder, discountCode: string): Promise<Preorder> {
