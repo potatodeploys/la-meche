@@ -36,11 +36,11 @@ args = "npm install"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "npm run db:generate"
+args = "npx drizzle-kit generate:pg"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "npm run db:migrate"
+args = "npx drizzle-kit push:pg"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
