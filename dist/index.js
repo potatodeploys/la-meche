@@ -1,8 +1,9 @@
 import "dotenv/config";
 import express from "express";
 import { createServer } from "http";
-import { registerRoutes } from "./routes.js"; // ✅ .js extension required for ESM
-import { setupVite, serveStatic, log } from "./vite.js"; // ✅ .js extension for ESM
+// ✅ Add .js to all local imports
+import { registerRoutes } from "./routes.js";
+import { setupVite, serveStatic, log } from "./vite.js";
 const app = express();
 app.use(express.static("client/dist"));
 app.use("/static-site", express.static("static-site"));
@@ -44,6 +45,7 @@ app.use((req, res, next) => {
     }
     const server = createServer(app);
     const port = 5001;
+    // ✅ Use "localhost" to avoid ENOTSUP on Windows
     server.listen(port, "localhost", () => {
         log(`🚀 Server running at http://localhost:${port}`);
     });
